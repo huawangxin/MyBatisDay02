@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<!-- 
+void addEmp(Emp emp);
+	void deleteEmp(Emp emp);
+	void updateEmp(Emp emp);
+	Emp findEmpById(Integer empno);
+	List<Emp> findEmpByName(String name);
+	List<Emp> findAllEmp();
+ -->
+<mapper namespace="com.huawangxin.entity.EmpMapper">
+	<insert id="addEmp" keyProperty="empno"
+		parameterType="com.huawangxin.entity.Emp">
+		<selectKey keyProperty="empno"
+			resultType="int" order="BEFORE">
+		  select seq_t_emp.nextval from dual
+		</selectKey>
+		insert into t_emp (empno, ename, mgr, 
+		hiredate, sal, comm, deptno)
+		values (#{empno},#{ename}, #{mgr}, 
+		#{hiredate}, #{sal}, #{comm}, #{deptno}) 	
+	</insert>
+	<delete id="deleteEmp" 
+		parameterType="com.huawangxin.entity.Emp">
+		delete from t_dept where empno=#{empno}
+	</delete>
+	<select id="findEmpById" 
+		resultType="com.huawangxin.entity.Emp"
+		parameterType="java.lang.Integer">
+		select empno, ename, mgr, 
+		hiredate, sal, comm, deptno 
+		from t_emp where emono = #{empno}
+	</select>
+	<select id="findAllEmp" 
+		resultType="com.huawangxin.entity.Emp">
+		select empno, ename, mgr, 
+		hiredate, sal, comm, deptno 
+		from t_emp
+	</select>
+	<select id="findEmpByName" 
+		resultType="com.huawangxin.entity.Emp"
+		parameterType="java.lang.String">
+		select empno, ename, mgr, 
+		hiredate, sal, comm, deptno 
+		from t_emp where ename like #{ename}
+	</select>
+	<update id="updateEmp" 
+		parameterType="com.huawangxin.entity.Emp">
+		update t_emp set ename=#{ename}, 
+		mgr=#{mgr}, hiredate=#{hiredate},
+		sal=#{sal}, comm=#{comm}, 
+		deptno=#{deptno} where empno=#{empno}
+	</update>	
+</mapper>
+
+
+
+
+
+
+

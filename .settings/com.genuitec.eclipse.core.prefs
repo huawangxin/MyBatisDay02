@@ -1,0 +1,4 @@
+#Wed Jun 24 17:49:51 CST 2015
+eclipse.preferences.version=1
+validator.Checked=src/com/huawangxin/dao/MyBatisEmpDao.java,src/applicationContext.xml
+validator.Unchecked=

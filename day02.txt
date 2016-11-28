@@ -1,0 +1,37 @@
+回顾
+  软件数据层(持久层)的解决方案
+                                优点                         缺点
+  JDBC 编程         编码灵活,性能好        编码量大,重复冗长
+  Spring JDBC   量少, 性能不错          没有JDBC灵活 
+  MyBatis       编码非常少, 性能不错 不灵活 
+  Hibernate     优雅, 面向对象,自动化  性能一般,不灵活
+                Sql Free             编码不少
+                
+  Spring MVC + MyBatis
+  
+  值对象: Value Object
+  实体对象: Entity Object 
+  
+  Spring MVC + MyBatis
+  解决表现层         数据层
+  
+  整合 Spring MVC  MyBatis
+  如何整合:　利用Spring　管理 MyBatis 的对象
+  实现注入方式使用 MyBatis 的对象 SqlSession Mapper
+  
+ MyBatis 团队开发的API 
+ 
+ 使用XML bean 配置 MyBatis API 
+ 
+ 提供注解:配置
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
